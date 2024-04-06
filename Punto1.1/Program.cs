@@ -12,11 +12,13 @@
                 //Declaracion de variables numero de jugadores
                 int numJugadores;
                 Console.Write("Ingrese el número de jugadores (entre 2 y 4): ");
-                numJugadores = int.Parse(Console.ReadLine());
+                numJugadores = Convert.ToInt32(Console.ReadLine());
+                //Declaro los valores del rango menor al rango menor permitido e inicilizo las variables en cero
 
                 int valorMin = 0;
                 int ValorMax = 0;
 
+                //variable que me permite agregar varios casos en este caso participantes y asigno los rangos segun indicaciones
                 switch (numJugadores)
                 {
                     case 2:
@@ -32,18 +34,18 @@
                         Console.WriteLine("Número de jugadores no válido. Intente de nuevo.");
                         continue;
                 }
-
+                //Generacion de numeros aleatorios 
                 int numAleatorio = new Random().Next(valorMin, ValorMax + 1);
 
                 Console.WriteLine($"Número aleatorio generado entre {valorMin} y {ValorMax}. ¡Comienza el juego!");
 
                 bool ganadorJuego = false;
                 int jugadorActual = 1;
-
+                //para el blucle que me permite guardar a medida que se van agregando numeros pueda mostrar si es mayo o menor al numero ingresado
                 while (!ganadorJuego)
                 {
                     Console.Write($"Jugador {jugadorActual}, ingrese su número: ");
-                    int guess = int.Parse(Console.ReadLine());
+                    int guess = Convert.ToInt32(Console.ReadLine());
 
                     if (guess < numAleatorio)
                     {
@@ -63,9 +65,9 @@
                 }
 
                 Console.Write("¿Desea jugar de nuevo? (s/n): ");
-                string playAgain = Console.ReadLine().ToLower();
+                string jugarDeNuevo = Console.ReadLine().ToLower();
 
-                if (playAgain != "s")
+                if (jugarDeNuevo != "s")
                 {
                     break;
                 }
