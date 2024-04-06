@@ -14,7 +14,8 @@
             {
 
                 //Declaramos las variables 
-                int numJugadores, numMin = 0 , numMax = 0;
+                int numJugadores, numMin = 0, numMax = 0, rango;
+                bool Ganador;
 
                 // numero de jugadores 
 
@@ -36,7 +37,9 @@
                         Console.WriteLine("No es posible agregar mas Jugadores");
                     
                 }
-                int rango = new Random().Next(numMin, mi)
+                rango = new Random().Next(numMin, numMax + 1);
+                Console.WriteLine("Numero Aleatorio se generara entre " + numMin + "y" + numMax + ". ¡Que comience el juego!");
+
 
             }   
 
