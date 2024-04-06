@@ -12,12 +12,15 @@
 
             while (true);
             {
-
                 //Declaramos las variables 
-                int numJugadores, rangoMin = 0, rangoMax = 0, random, adivinanza;
-                bool Ganador;
+                //int numJugadores, rangoMin = 0, rangoMax = 0, random, adivinanza;
 
-                // numero de jugadores 
+                Console.WriteLine("Bienvenidos al juego Adivina el numero o quedaras atrapado");
+                int numJugadores = int.Parse(Console.ReadLine());
+                int rangoMin = 0;
+                int rangoMax = 0; 
+
+                // numero de jugadores 2 a 4 
 
                 Console.WriteLine("Ingrese el numero de Jugadores (Entre 2 y 4 Jugadores): "); 
                 numJugadores = Convert.ToInt32(Console.ReadLine());
@@ -38,17 +41,18 @@
                     
                 }
                 //numero aleatorio
-                random = new Random().Next(rangoMin, rangoMax + 1);
-                Console.WriteLine("Numero Aleatorio se generara entre " + rangoMin + "y" + rangoMax + ". ¡Que comience el juego!")
+                int random = new Random().Next(rangoMin, rangoMax + 1);
+                Console.WriteLine("Numero Aleatorio se generara entre " + rangoMin + "y" + rangoMax + ". ¡Que comience el juego!");
                 
 
-                Ganador = false;
+                bool Ganador = false;
                 int jugadorActual = 1;
+
 
                 while (!Ganador)
                 {
                     Console.WriteLine("Jugador" + jugadorActual + "," + "ingrese su numero: ");
-                    adivinanza = Convert.ToInt32(Console.ReadLine());
+                    int adivinanza = Convert.ToInt32(Console.ReadLine());
 
                     if (adivinanza < random)
                     {
