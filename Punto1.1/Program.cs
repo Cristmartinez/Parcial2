@@ -45,13 +45,13 @@
                 while (!ganadorJuego)
                 {
                     Console.Write($"Jugador {jugadorActual}, ingrese su número: ");
-                    int guess = Convert.ToInt32(Console.ReadLine());
-
-                    if (guess < numAleatorio)
+                    int numIngresado = Convert.ToInt32(Console.ReadLine());
+                    //si el numero ingresado es mayor o menor muestra el mensaje
+                    if (numIngresado < numAleatorio)
                     {
                         Console.WriteLine("MAYOR");
                     }
-                    else if (guess > numAleatorio)
+                    else if (numIngresado > numAleatorio)
                     {
                         Console.WriteLine("MENOR");
                     }
