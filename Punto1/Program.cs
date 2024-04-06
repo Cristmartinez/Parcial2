@@ -1,4 +1,6 @@
-﻿namespace Punto1
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace Punto1
 {
     internal class Program
     {
@@ -7,6 +9,7 @@
             //Juego adivina El numero 
             //Muestra el mensaje de entrada
             Console.WriteLine("Bienvenidos al juego Adivina el numero o quedaras atrapado");
+            //Console.WriteLine("Ingrese el numero de Jugadores (Entre 2 y 4 Jugadores): ");
 
             // Creacion de Bucle para los jugadores 
 
@@ -15,15 +18,14 @@
                 //Declaramos las variables 
                 //int numJugadores, rangoMin = 0, rangoMax = 0, random, adivinanza;
 
-                Console.WriteLine("Bienvenidos al juego Adivina el numero o quedaras atrapado");
-                int numJugadores = int.Parse(Console.ReadLine());
+
                 int rangoMin = 0;
                 int rangoMax = 0; 
 
                 // numero de jugadores 2 a 4 
 
                 Console.WriteLine("Ingrese el numero de Jugadores (Entre 2 y 4 Jugadores): "); 
-                numJugadores = Convert.ToInt32(Console.ReadLine());
+                int numJugadores = int.Parse(Console.ReadLine());
 
                 switch (numJugadores)
                 {
@@ -38,6 +40,7 @@
                         break;
                     default:
                         Console.WriteLine("No es posible agregar mas Jugadores");
+                     
                     
                 }
                 //numero aleatorio
@@ -65,13 +68,21 @@
                     else
                     {
                         Console.WriteLine("¡Felicitaciones HAS GANADO!");
+                        Ganador = true;
                     }
+                    jugadorActual = (jugadorActual % numJugadores) + 1;
 
                 }
-
+                Console.Write("¿Desea jugar de nuevo? (s/n): ");
+                string respuesta = Console.ReadLine();
+                if (respuesta == "s") ;
+                {
+                    Console.Clear();
                 }
-                  
 
+
+            }
+            Console.WriteLine("Gracias por Jugar");
         }
     }
 }
