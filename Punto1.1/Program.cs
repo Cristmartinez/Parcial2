@@ -4,69 +4,70 @@
     {
         static void Main(string[] args)
         {
+            //Mensaje de  Bienvenida
             Console.WriteLine("Bienvenido al juego Adivina el número!");
-
-            bool jugarDeNuevo = true;
-
-            while (jugarDeNuevo)
+            //Creacionde del bucle para que los participantes puedan ingresar varios numeros
+            while (true)
             {
+                //Declaracion de variables numero de jugadores
+                int numJugadores;
                 Console.Write("Ingrese el número de jugadores (entre 2 y 4): ");
-                int numPlayers = int.Parse(Console.ReadLine());
+                numJugadores = int.Parse(Console.ReadLine());
 
-                int minValue = 0;
-                int maxValue = 0;
+                int valorMin = 0;
+                int ValorMax = 0;
 
-                switch (numPlayers)
+                switch (numJugadores)
                 {
                     case 2:
-                        maxValue = 50;
+                        ValorMax = 50;
                         break;
                     case 3:
-                        maxValue = 100;
+                        ValorMax = 100;
                         break;
                     case 4:
-                        maxValue = 200;
+                        ValorMax = 200;
                         break;
                     default:
                         Console.WriteLine("Número de jugadores no válido. Intente de nuevo.");
                         continue;
                 }
 
-                int targetNumber = new Random().Next(minValue, maxValue + 1);
+                int numAleatorio = new Random().Next(valorMin, ValorMax + 1);
 
-                Console.WriteLine($"Número aleatorio generado entre {minValue} y {maxValue}. ¡Comienza el juego!");
+                Console.WriteLine($"Número aleatorio generado entre {valorMin} y {ValorMax}. ¡Comienza el juego!");
 
-                bool gameWon = false;
-                int currentPlayer = 1;
+                bool ganadorJuego = false;
+                int jugadorActual = 1;
 
-                while (!gameWon)
+                while (!ganadorJuego)
                 {
-                    Console.Write($"Jugador {currentPlayer}, ingrese su número: ");
+                    Console.Write($"Jugador {jugadorActual}, ingrese su número: ");
                     int guess = int.Parse(Console.ReadLine());
 
-                    if (guess < targetNumber)
+                    if (guess < numAleatorio)
                     {
                         Console.WriteLine("MAYOR");
                     }
-                    else if (guess > targetNumber)
+                    else if (guess > numAleatorio)
                     {
                         Console.WriteLine("MENOR");
                     }
                     else
                     {
                         Console.WriteLine("¡HAS GANADO!");
-                        gameWon = true;
+                        ganadorJuego = true;
                     }
 
-                    currentPlayer = (currentPlayer % numPlayers) + 1;
+                    jugadorActual = (jugadorActual % numJugadores) + 1;
                 }
 
                 Console.Write("¿Desea jugar de nuevo? (s/n): ");
-                string respuesta = Console.ReadLine();
+                string playAgain = Console.ReadLine().ToLower();
 
-                if (respuesta.ToLower() != "s")
+                if (playAgain != "s")
                 {
-                    jugarDeNuevo = false;
+                    break;
                 }
 
                 Console.Clear();
