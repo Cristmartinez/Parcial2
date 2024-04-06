@@ -49,7 +49,7 @@
                         bonoMensualSocio1 = aporteMensualSocio1 * (decimal)BONO;
                         bonoTotalSocio1 += bonoMensualSocio1;
                     }
-
+                    
                     aporteTotalSocio1 += aporteMensualSocio1;
                     rendimientoTotalSocio1 += rendimientoMensualSocio1;
 
