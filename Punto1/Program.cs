@@ -14,7 +14,7 @@
             {
 
                 //Declaramos las variables 
-                int numJugadores, numMin = 0, numMax = 0, rango;
+                int numJugadores, rangoMin = 0, rangoMax = 0, random, adivinanza;
                 bool Ganador;
 
                 // numero de jugadores 
@@ -25,23 +25,48 @@
                 switch (numJugadores)
                 {
                     case 2:
-                        numMax = 50;
+                        rangoMax = 50;
                         break;
                     case 3:
-                        numMax = 100;
+                        rangoMax = 100;
                         break;
                     case 4:
-                        numMax = 200;
+                        rangoMax = 200;
                         break;
                     default:
                         Console.WriteLine("No es posible agregar mas Jugadores");
                     
                 }
-                rango = new Random().Next(numMin, numMax + 1);
-                Console.WriteLine("Numero Aleatorio se generara entre " + numMin + "y" + numMax + ". ¡Que comience el juego!");
+                //numero aleatorio
+                random = new Random().Next(rangoMin, rangoMax + 1);
+                Console.WriteLine("Numero Aleatorio se generara entre " + rangoMin + "y" + rangoMax + ". ¡Que comience el juego!")
+                
 
+                Ganador = false;
+                int jugadorActual = 1;
 
-            }   
+                while (!Ganador)
+                {
+                    Console.WriteLine("Jugador" + jugadorActual + "," + "ingrese su numero: ");
+                    adivinanza = Convert.ToInt32(Console.ReadLine());
+
+                    if (adivinanza < random)
+                    {
+                        Console.WriteLine("MAYOR");
+                    }
+                    else if (adivinanza > random)
+                    {
+                        Console.WriteLine("MENOR");
+                    }
+                    else
+                    {
+                        Console.WriteLine("¡Felicitaciones HAS GANADO!");
+                    }
+
+                }
+
+                }
+                  
 
         }
     }
